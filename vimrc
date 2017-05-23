@@ -557,3 +557,34 @@ if !g:remoteSession
 endif
 
 " vim:ts=2:sw=2:et
+
+" ^^^^^^^^^^^^^ Custom Settings ^^^^^^^^^^^^^^^^
+" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+set t_Co=256
+
+" =================== File Type settings ===================
+au BufNewFile,BufRead *.c setlocal  expandtab ts=2  sw=2
+au BufNewFile,BufRead *.h setlocal  expandtab ts=2  sw=2
+
+" ================== vim-syntastic ========================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+" ============== copy or paste from X11 clipboard ==============
+" http://vim.wikia.com/wiki/GNU/Linux_clipboard_copy/paste_with_xclip
+" requires: xclip
+" usage: visual mode select then hit F6 to copy
+" 	hit F7 to paste from GUI to vim without formating issues
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> mz:-1r !xclip -o -sel clip<CR>`z
+
+
+" ~~~~~~~~~~~~~ Custom Settings ~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
